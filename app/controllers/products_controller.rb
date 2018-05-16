@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    increment_counter
   end
 
   # GET /products/1
@@ -70,5 +71,12 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
+    end
+
+    def increment_counter
+      if session[:counter].nil?
+       session[:counter] = 0
+      end
+      session[:counter] += 1
     end
 end
