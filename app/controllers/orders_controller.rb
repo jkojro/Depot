@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        OrderMailer.received(@order).deliver_now
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to store_index_url, notice: 'Tahnks for your order.' }
