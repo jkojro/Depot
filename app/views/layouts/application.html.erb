@@ -29,12 +29,6 @@
             <%= button_to 'Log in', login_path %>
           <% end %>
         </ul>
-      	<ul>
-          <li><a href="http://www....">Home</a></li>
-          <li><a href="http://www..../faq">Questions</a></li>
-          <li><a href="http://www..../news">News</a></li>
-          <li><a href="http://www..../contact">Contact</a></li>
-        </ul>
         <% if session[:user_id] %>
           <ul>
             <li><%= link_to 'Orders', orders_path %></li>
